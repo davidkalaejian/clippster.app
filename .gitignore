@@ -1,1 +1,9 @@
 .DS_Store
+
+# Internal working docs (kept locally, not published)
+DESIGN.md
+PRODUCT.md
+PROJECT.md
+APP_STORE_LISTING.md
+Privacy_policy.md
+Terms&Conditions.md
