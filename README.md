@@ -1,5 +1,7 @@
 # Clippster — Landing Page
 
+**Live: https://davidkalaejian.github.io/clippster.app/**
+
 Marketing site for **Clippster**, a native macOS menu bar clipboard manager with
 on-device AI. Static HTML/CSS/JS — zero build, zero dependencies.
 
