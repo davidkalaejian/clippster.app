@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--
+  CLIPPSTER — LANDING PAGE · DIRECTION CONTRACT
+  THESIS: A quiet, cinematic dark stage where the app's own glass material and
+  App Store frames do the persuading. The site feels like the app: deep navy,
+  frosted glass, one iridescent shimmer.
+  OWN-WORLD: The app's screenshots, glass icon, and blue→pink iridescence define
+  the world; the site stages them instead of inventing a parallel look.
+  STORY: Never lose a copy → everything remembered and findable → recall in one
+  keystroke → all of it stays on your Mac → download.
+  FIRST VIEWPORT: Left-aligned headline, spinning glass icon centerpiece, one
+  pill CTA, ⌥⌘V chip floating on the visual. No scroll needed.
+  FORM: Static HTML/CSS/JS, zero build, GitHub Pages. System SF Pro stack,
+  vanilla IntersectionObserver motion, no libraries.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clippster — Your intelligent clipboard companion for Mac</title>
+  <meta name="description" content="Clippster is a native macOS clipboard manager with on-device AI. Every copy and every screenshot — remembered, organized, and searchable by meaning. No cloud, no accounts.">
+  <meta name="theme-color" content="#070B18">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Clippster — Your intelligent clipboard companion">
+  <meta property="og:description" content="Never lose what matters. Every copy and screenshot, remembered and searchable by meaning. Everything stays on your Mac.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="preload" as="image" href="assets/icon-512.png">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- ▸ APP STORE URL — PLACEHOLDER: replace with the live App Store link when published. -->
+  <script>
+    window.APP_STORE_URL = "https://apps.apple.com/app/clippster/id000000000"; // TODO: real App Store URL
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ── 1 · NAV ─────────────────────────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Clippster — back to top">
+        <img src="assets/icon-512.png" alt="" width="26" height="26" class="brand-icon">
+        <span class="brand-name">Clippster</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#remember">Remember</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#recall">Recall</a>
+        <a href="https://tally.so/r/lbXMoB" target="_blank" rel="noopener">Support</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" data-download href="#" target="_blank" rel="noopener">Download for Mac</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ── 2 · HERO ────────────────────────────────────────── -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 class="display hero-h1" data-hero style="--i:0">
+            Your intelligent<br>
+            <span class="iridescent">clipboard companion</span>
+          </h1>
+          <p class="hero-sub" data-hero style="--i:1">
+            Every copy, every screenshot — remembered, organized, and searchable
+            by meaning. Everything stays on your Mac.
+          </p>
+          <div class="hero-cta" data-hero style="--i:2">
+            <a class="btn btn-primary" data-download href="#" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true" class="btn-icon"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download for Mac</a>
+            <a class="btn btn-ghost" href="#remember">See how it works</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-hero style="--i:3">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="hero-orb">
+            <video
+              class="hero-video"
+              autoplay muted playsinline
+              preload="auto"
+              poster="assets/icon-512.png"
+              aria-label="Clippster app icon, rotating glass mark">
+              <source src="assets/icon-spin.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#remember" aria-label="Scroll to content">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 1v11M2.5 8 7 12.5 11.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ── 3 · REMEMBER — full-bleed Manager frame ─────────── -->
+    <section class="section remember" id="remember" aria-labelledby="remember-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2 class="title" id="remember-h">Never lose a copy again.</h2>
+          <p class="lede">
+            Every copy and every screenshot lands in a persistent on-disk history
+            that survives restarts. Pin what matters forever; the rest prunes itself.
+          </p>
+          <ul class="chip-row" role="list">
+            <li class="chip">500-clip memory</li>
+            <li class="chip">Text · URLs · Images · Files</li>
+            <li class="chip">Screenshots, automatically</li>
+          </ul>
+        </div>
+        <figure class="media media-bleed" data-reveal-media>
+          <img src="assets/frame-10.jpg" width="2000" height="1250" loading="lazy"
+               alt="Clippster Manager window showing clipboard history grouped by day, with pinned clips and category filter chips">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ── 4 · INTELLIGENCE — AI bento ─────────────────────── -->
+    <section class="section intelligence" id="intelligence" aria-labelledby="intel-h">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">On-device intelligence</p>
+          <h2 class="title" id="intel-h">Your clips, understood.</h2>
+          <p class="lede">
+            Every clip is enriched entirely on your Mac by Apple’s frameworks,
+            and no data ever leaves the machine.
+          </p>
+        </div>
+
+        <div class="bento">
+          <article class="bento-cell bento-wide glass" data-reveal style="--i:0">
+            <div class="bento-copy">
+              <h3>Search by meaning, not just words.</h3>
+              <p>
+                Sentence embeddings find the clip you’re thinking of — search
+                “terminal command” and find that <code>git</code> snippet.
+              </p>
+            </div>
+            <figure class="media bento-media">
+              <img src="assets/frame-11.jpg" width="2000" height="1250" loading="lazy"
+                   alt="Semantic search in Clippster finding clips by meaning in the Manager window">
+            </figure>
+          </article>
+
+          <article class="bento-cell glass" data-reveal style="--i:1">
+            <div class="bento-copy">
+              <h3>Text, read out of images.</h3>
+              <p>
+                Vision OCR makes every screenshot and image searchable. Copy the
+                scanned text with <kbd class="kbd-inline">⇧↵</kbd>, right from the popover.
+              </p>
+            </div>
+            <figure class="media bento-media">
+              <img src="assets/frame-13.jpg" width="2000" height="1250" loading="lazy"
+                   alt="One-click OCR extracting text from a screenshot inside Clippster">
+            </figure>
+          </article>
+
+          <article class="bento-cell bento-tint glass" data-reveal style="--i:2">
+            <div class="bento-copy">
+              <h3>Sorted as you copy.</h3>
+              <p>
+                A hybrid classifier files your clips automatically and flags
+                anything that looks like a password or API key with a key icon.
+                On macOS&nbsp;26, Apple Intelligence resolves the ambiguous ones.
+              </p>
+              <ul class="tag-cloud" role="list" aria-label="Detected categories">
+                <li>link</li>
+                <li>file-path</li>
+                <li>code</li>
+                <li>email</li>
+                <li>plain-text</li>
+                <li class="tag-warn">credentials-suspect</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5 · RECALL — hotkey moment ──────────────────────── -->
+    <section class="section recall" id="recall" aria-labelledby="recall-h">
+      <div class="wrap">
+        <div class="recall-stage" data-reveal>
+          <div class="keycap-trio" aria-hidden="true">
+            <kbd class="keycap keycap-lg" style="--i:0">⌥</kbd>
+            <kbd class="keycap keycap-lg" style="--i:1">⌘</kbd>
+            <kbd class="keycap keycap-lg keycap-accent" style="--i:2">V</kbd>
+          </div>
+          <h2 class="title" id="recall-h">One keystroke away.</h2>
+          <p class="lede lede-center">
+            Press <kbd class="kbd-inline">⌥⌘V</kbd> anywhere. Your latest 15 clips appear
+            with live previews — arrows to move, <kbd class="kbd-inline">↵</kbd> to copy,
+            <kbd class="kbd-inline">P</kbd> to pin. Hands never leave the keyboard.
+          </p>
+        </div>
+        <figure class="media media-narrow" data-reveal-media>
+          <img src="assets/frame-14.jpg" width="2000" height="1250" loading="lazy"
+               alt="Clippster popover with full keyboard navigation, opened with the ⌥⌘V hotkey">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ── 6 · PRIVACY — statement ─────────────────────────── -->
+    <section class="section privacy" id="privacy" aria-labelledby="privacy-h">
+      <div class="wrap privacy-grid">
+        <div class="privacy-statement" data-reveal>
+          <p class="eyebrow">Privacy</p>
+          <h2 class="title" id="privacy-h">Everything stays<br>on your Mac.</h2>
+          <p class="lede">
+            No cloud, no accounts, no analytics, no network. Every clip is
+            enriched on-device by Apple’s frameworks. Your history is yours alone.
+          </p>
+        </div>
+        <ul class="proof-list" role="list" data-reveal style="--i:1">
+          <li>
+            <h3>Password managers, never captured</h3>
+            <p>Concealed and transient pasteboard types are ignored at the source, so secrets never enter history.</p>
+          </li>
+          <li>
+            <h3>Near-zero idle CPU</h3>
+            <p>No daemons, no polling, no logins: just a menu bar icon and a hotkey.</p>
+          </li>
+          <li>
+            <h3>Your data, portable</h3>
+            <p>Export the full history to JSON, or clear everything, in one click.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── 7 · SPECS — quiet strip ─────────────────────────── -->
+    <section class="section specs" aria-labelledby="specs-h">
+      <div class="wrap">
+        <h2 class="visually-hidden" id="specs-h">Specifications</h2>
+        <dl class="spec-grid" data-reveal>
+          <div class="spec"><dt>Platform</dt><dd>macOS 14+</dd></div>
+          <div class="spec"><dt>Categorization</dt><dd>macOS 26 · Apple Intelligence</dd></div>
+          <div class="spec"><dt>Built with</dt><dd>Swift · SwiftUI · SwiftData</dd></div>
+          <div class="spec"><dt>On-device AI</dt><dd>Vision · Foundation Models · NaturalLanguage</dd></div>
+          <div class="spec"><dt>Distribution</dt><dd>Notarized · Mac App Store</dd></div>
+          <div class="spec"><dt>Version</dt><dd>1.1 · Free</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ── 8 · FINAL CTA ───────────────────────────────────── -->
+    <section class="section finale" aria-labelledby="finale-h">
+      <div class="finale-glow" aria-hidden="true"></div>
+      <div class="wrap finale-inner" data-reveal>
+        <img src="assets/icon-512.png" alt="" width="72" height="72" class="finale-icon">
+        <h2 class="display" id="finale-h">Never lose<br><span class="iridescent">what matters.</span></h2>
+        <a class="btn btn-primary btn-lg" data-download href="#" target="_blank" rel="noopener">Download for Mac</a>
+        <p class="finale-meta">Free · macOS 14 and later</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── 9 · FOOTER ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="#top" aria-label="Clippster — back to top">
+        <img src="assets/icon-512.png" alt="" width="22" height="22" class="brand-icon">
+        <span class="brand-name">Clippster</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#remember">Remember</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#recall">Recall</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a data-download href="#" target="_blank" rel="noopener">Download</a>
+      </nav>
+      <p class="footer-meta">Made for Mac · © 2026 David Kalayejian</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
