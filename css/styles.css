@@ -586,12 +586,16 @@ html.no-hero-black body::after { display: none; } /* QA / snapshot mode */
   opacity: 1;
   transform: none;
   filter: none; /* NOT blur(0) — a filter function holds a permanent stacking context and traps descendants' mix-blend-mode */
-  clip-path: inset(0 0 0 0 round var(--r-media));
   transition:
     opacity 0.9s var(--ease-out),
     transform 0.9s var(--ease-out),
-    filter 0.9s var(--ease-out),
-    clip-path 1s var(--ease-out);
+    filter 0.9s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.will-reveal-media.reveal-in {
+  clip-path: inset(0 0 0 0 round var(--r-media));
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out),
+              clip-path 1s var(--ease-out);
   transition-delay: calc(var(--i, 0) * 90ms);
 }
 .hero-load .will-hero {
